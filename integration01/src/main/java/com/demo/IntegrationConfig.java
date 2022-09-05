@@ -11,6 +11,9 @@ import org.springframework.integration.file.FileWritingMessageHandler;
 
 import java.io.File;
 
+/**
+ * @author HP
+ */
 @Configuration
 public class IntegrationConfig {
 
