@@ -7,6 +7,8 @@
         <module>pojo</module>
         <module>integration01</module>
         <module>integration02</module>
+        <module>spring-batch</module>
+        <module>flyway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

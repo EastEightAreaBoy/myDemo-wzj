@@ -1,0 +1,11 @@
+services:
+  mysql:
+    restart: always
+    image: mysql:5.7.33
+    container_name: mysql-local
+    environment:
+      - "MYSQL_ROOT_PASSWORD=123456"
+      - "MYSQL_DATABASE=flyway-demo"
+      - "TZ=Asia/Shanghai"
+    ports:
+      - 3306:3306
