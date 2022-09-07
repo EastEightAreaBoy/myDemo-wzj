@@ -9,6 +9,7 @@
         <module>integration02</module>
         <module>spring-batch</module>
         <module>flyway</module>
+        <module>hareoas</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
