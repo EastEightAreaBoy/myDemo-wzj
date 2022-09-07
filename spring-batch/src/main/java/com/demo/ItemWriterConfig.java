@@ -36,17 +36,17 @@ public class ItemWriterConfig {
         return new ItemWriteListener<>() {
             @Override
             public void beforeWrite(List<? extends Employee> list) {
-                log.info("beforeWrite: " + list);
+                log.info("=====beforeWrite: " + list);
             }
 
             @Override
             public void afterWrite(List<? extends Employee> list) {
-                log.info("afterWrite: " + list);
+                log.info("=====afterWrite: " + list);
             }
 
             @Override
             public void onWriteError(Exception e, List<? extends Employee> list) {
-                log.info("onWriteError: " + list);
+                log.info("=====onWriteError: " + list);
             }
         };
     }
@@ -72,25 +72,4 @@ public class ItemWriterConfig {
         return writer;
     }
 
-    @Bean
-    public Step csvStep(StepBuilderFactory stepBuilderFactory,
-                        MultiResourceItemReader<Employee> multiResourceItemReader,
-                        ItemProcessor<Employee, Employee> itemProcessor,
-                        FlatFileItemWriter<Employee> writer) {
-        return stepBuilderFactory.get("csvStep").<Employee, Employee>chunk(5)
-                .reader(multiResourceItemReader)
-                .processor(itemProcessor)
-                .writer(writer)
-                .build();
-    }
-
-    @Bean
-    public Job pkslowCsvJob(JobBuilderFactory jobBuilderFactory,
-                            Step csvStep) {
-        return jobBuilderFactory
-                .get("pkslowCsvJob")
-                .incrementer(new RunIdIncrementer())
-                .start(csvStep)
-                .build();
-    }
 }
