@@ -12,9 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
+/**
+ * @author HP
+ */
 @RestController
 public class BookController {
 
@@ -27,5 +33,17 @@ public class BookController {
         BookModel bookModel = new BookModel(book);
         bookModel.add(linkTo(methodOn(BookController.class).getBook(id)).withSelfRel());
         return new ResponseEntity(bookModel, HttpStatus.OK);
+    }
+
+    @RequestMapping("/books")
+    public HttpEntity<Book> books() {
+        Iterable<Book> books = bookRepository.findAll();
+        List<BookModel> list = new ArrayList<>();
+        books.forEach(h -> {
+            BookModel bookModel = new BookModel(h);
+            bookModel.add(linkTo(methodOn(BookController.class).getBook(h.getId())).withSelfRel());
+            list.add(bookModel);
+        });
+        return new ResponseEntity(list, HttpStatus.OK);
     }
 }
