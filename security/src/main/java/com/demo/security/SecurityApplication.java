@@ -1,4 +1,4 @@
-package com.demo.flyway;
+package com.demo.security;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author HP
  */
 @SpringBootApplication
-public class FlywayApplication {
+public class SecurityApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FlywayApplication.class, args);
+        SpringApplication.run(SecurityApplication.class, args);
     }
 
 }
