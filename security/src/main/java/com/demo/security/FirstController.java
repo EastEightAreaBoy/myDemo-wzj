@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FirstController {
 
     @RequestMapping("/time")
-    public String getBook() {
+    public String time() {
         return System.currentTimeMillis() + "";
     }
 

@@ -10,9 +10,10 @@ public class PasswordTest {
 
     @Test
     public void test01 () {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(10);
         String encode = encoder.encode("123456");
         //$2a$10$eTZwFG0bsEqg1qhuEFjJkuCBS/fOsfqTDOhnT4GTG3bVOlVV.Spg.
+        //$2a$10$ZZMRvr0JbpGwp8xYuJCNleGuMHDFoCuqA8O5THqrn.Mb9R7HOjHUC
         System.out.println(encode);
     }
 

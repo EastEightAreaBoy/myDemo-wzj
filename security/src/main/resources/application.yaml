@@ -4,4 +4,9 @@ spring:
   security:
     user:
       name: root
-      password: 123456
+      password: $2a$10$ZZMRvr0JbpGwp8xYuJCNleGuMHDFoCuqA8O5THqrn.Mb9R7HOjHUC
+  datasource:
+    url: jdbc:mysql://localhost:3306/my-demo
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
